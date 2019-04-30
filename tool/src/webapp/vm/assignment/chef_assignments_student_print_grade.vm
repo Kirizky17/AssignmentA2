@@ -1,0 +1,71 @@
+<!-- start: chef_assignments_student_view_grade.vm  -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        ASN.setupToggleAreas('toggleAnchor', 'toggledContent', false, 'fast');
+        $("#accordion").accordion({
+                    heightStyle: 'content',
+                    active: 0,
+                    collapsible: true,
+                    change: function (event, ui) {
+                        ASN.resizeFrame();
+                    },
+                    activate: function (event, ui) {
+                        ASN.resizeFrame();
+                    }
+                }
+        );
+    });
+</script>
+<style type="text/css">
+    *{
+        font-family: Lato;
+    }
+</style>
+<div style="border:1px solid black" width="50%">
+    <table width="100%" align="center" bgcolor="lightgrey">
+        <tr align="center" bgcolor="white">
+            <td style="font-size: 52px" bgcolor="orange"> ASSIGNMENT PROGRESS REPORT </td>
+            <td width="250px"> <img id="logo" src="sakai.png"> </td>
+        </tr>
+    </table>
+    <table width="25%" style="margin-top: 5px">
+        <tr>
+            <td>Site Name</td>
+            <td>: $!site_title</td>
+        </tr>
+        <tr>
+            <td>Assignment Name</td>
+            <td>: $!assignment_title</td>
+        </tr>
+        <tr>
+            <td>Instructor Name</td>
+            <td>: $!author</td>
+        </tr>
+        <tr>
+            <td>Student Name</td>
+            <td>: $!student_name</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>: 
+                ##$!service.getUsersLocalDateTimeString($submitTime)
+                $!submit_time
+            </td>
+        </tr>
+        <tr>
+            <td>Grade (Points)</td>
+            <td>: $!grade/$!service.getMaxPointGradeDisplay($!assignment.ScaleFactor, $!assignment.MaxGradePoint)</td>
+        </tr>
+    </table>
+    <table style="margin-top: 40px">
+        <tr>
+            <td>Feedback</td>
+        </tr>
+    </table>
+    <table style="border-collapse: collapse; border: 1px solid black" width="35%">
+        <td>Asiap kamu mantap</td>
+    </table>
+    <table style="margin-top: 20px">
+    <td></td>
+    </table>
+</div>
